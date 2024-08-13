@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('laptops', function (Blueprint $table) {
             $table->id();
-            $table->string('model', 100);
-            $table->string('dimensions', 150);
-            $table->string('power_supply', 150);
-            $table->string('battery_package', 150);
-            $table->string('processor', 150);
-            $table->string('memory', 100);
-            $table->string('storage', 100);
-            $table->string('monitor', 100);
-            $table->string('keyboard', 100);
-            $table->string('connectors_slots', 255); // Aumentar el tamaño máximo
-            $table->string('security_features', 150);
-            $table->string('wireless_features', 150);
+            $table->string('model');
+            $table->string('dimensions');
+            $table->string('power_supply');
+            $table->string('battery_package');
+            $table->string('processor');
+            $table->string('memory');
+            $table->string('storage');
+            $table->string('monitor');
+            $table->string('keyboard');
+            $table->string('connectors_slots'); // Aumentar el tamaño máximo
+            $table->string('security_features');
+            $table->string('wireless_features');
             $table->string('img', 50)->nullable();
             $table->timestamps();
         });

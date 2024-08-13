@@ -12,7 +12,7 @@
                     <div class="sm:flex sm:items-center mb-4">
                         <div class="sm:flex-auto">
                             <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Laptops') }}</h1>
-                            <p class="mt-2 text-sm text-gray-700">A list of all the {{ __('Laptops') }}.</p>
+                            <p class="mt-2 text-sm text-gray-700">Lista de todas las {{ __('Laptops') }}.</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                             <a type="button" href="{{ route('laptops.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add new</a>
@@ -25,7 +25,6 @@
                             <div class="mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900">{{ $laptop->model }}</h3>
                             </div>
-                            <button type="button" class="text-indigo-600 hover:text-indigo-900 focus:outline-none">View Details</button>
                             <div id="details-{{ $index }}" class="hidden mt-2 text-sm">
                                 <p><strong>Dimensions:</strong> {{ $laptop->dimensions }}</p>
                                 <p><strong>Power Supply:</strong> {{ $laptop->power_supply }}</p>
@@ -56,10 +55,8 @@
                     <div class="mt-4 px-4">
                         {!! $laptops->withQueryString()->links() !!}
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
-@vite(['resources/js/listain/frond.js'])
