@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('storage');
             $table->string('monitor');
             $table->string('keyboard');
-            $table->string('connectors_slots'); // Aumentar el tamaño máximo
+            $table->string('connectors_slots');
             $table->string('security_features');
             $table->string('wireless_features');
-            $table->string('img', 50)->nullable();
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }
