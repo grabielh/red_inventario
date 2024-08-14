@@ -20,6 +20,14 @@
                         {{ __('Laptops') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('desktop-pcs.index')" :active="request()->routeIs('desktop-pcs.index')">
+                        {{ __('Desktop_pcs') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('all-in-ones.index')" :active="request()->routeIs('all-in-ones.index')">
+                        {{ __('All in One') }}
+                    </x-nav-link>
+
                     <!-- laptop.index -->
                 </div>
             </div>
