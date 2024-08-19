@@ -23,6 +23,22 @@ class AllInOneController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * $allInOnes->perPage());
     }
 
+    public function search(Request $request): View
+    {
+        $query = $request->input('query');
+        $allInOnes = AllInOne::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('model', 'LIKE', "%{$query}%")
+                    ->orWhere('ram', 'LIKE', "%{$query}%")
+                    ->orWhere('storage', 'LIKE', "%{$query}%")
+                    ->orWhere('processor', 'LIKE', "%{$query}%");
+            })
+            ->paginate(10); // Puedes ajustar el número de resultados por página
+
+        return view('all-in-one.index', compact('allInOnes'))
+            ->with('i', ($request->input('page', 1) - 1) * $allInOnes->perPage());
+    }
+
     /**
      * Show the form for creating a new resource.
      */

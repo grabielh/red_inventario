@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Dispositivos') }}
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
 
                     <!-- Formulario de Búsqueda -->
-                    <form action="{{ route('dashboard.search') }}" method="GET" class="mb-6">
+                    <form action="{{ route('containnerdashboard.search') }}" method="GET" class="mb-6">
                         <div class="flex items-center border-b border-gray-300 py-2">
                             <input type="text" name="query" placeholder="Buscar dispositivos por modelo, procesador, etc." class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600" value="{{ request('query') }}">
                             <button type="submit" class="ml-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500">Buscar</button>

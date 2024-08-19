@@ -23,6 +23,25 @@ class LaptopController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * $laptops->perPage());
     }
 
+    public function search(Request $request): View
+    {
+        $query = $request->input('query');
+        $laptops = Laptop::where('model', 'LIKE', "%{$query}%")
+            ->orWhere('dimensions', 'LIKE', "%{$query}%")
+            ->orWhere('processor', 'LIKE', "%{$query}%")
+            ->orWhere('memory', 'LIKE', "%{$query}%")
+            ->orWhere('storage', 'LIKE', "%{$query}%")
+            ->orWhere('monitor', 'LIKE', "%{$query}%")
+            ->orWhere('keyboard', 'LIKE', "%{$query}%")
+            ->orWhere('connectors_slots', 'LIKE', "%{$query}%")
+            ->orWhere('security_features', 'LIKE', "%{$query}%")
+            ->orWhere('wireless_features', 'LIKE', "%{$query}%")
+            ->paginate(10); // Puedes ajustar el número de resultados por página
+
+        return view('laptop.index', compact('laptops'))
+            ->with('i', ($request->input('page', 1) - 1) * $laptops->perPage());
+    }
+
     /**
      * Show the form for creating a new resource.
      */

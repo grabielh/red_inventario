@@ -22,6 +22,22 @@ class DesktopPcController extends Controller
         return view('desktop-pc.index', compact('desktopPcs'))
             ->with('i', ($request->input('page', 1) - 1) * $desktopPcs->perPage());
     }
+    
+    public function search(Request $request): View
+    {
+        $query = $request->input('query');
+        $desktopPcs = DesktopPc::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('motherboard_model', 'LIKE', "%{$query}%")
+                    ->orWhere('ram', 'LIKE', "%{$query}%")
+                    ->orWhere('storage', 'LIKE', "%{$query}%")
+                    ->orWhere('processor', 'LIKE', "%{$query}%");
+            })
+            ->paginate(10);
+
+        return view('desktop-pc.index', compact('desktopPcs'))
+            ->with('i', ($request->input('page', 1) - 1) * $desktopPcs->perPage());
+    }
 
     /**
      * Show the form for creating a new resource.

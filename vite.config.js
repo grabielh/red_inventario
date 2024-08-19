@@ -10,6 +10,7 @@ export default defineConfig({
 
                 // frond
                 'resources/js/calcular.js',
+                'resources/js/showdate.js',
 
             ],
             refresh: true,
