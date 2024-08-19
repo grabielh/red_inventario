@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -11,26 +11,40 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                </div>
 
-                    <x-nav-link :href="route('laptops.index')" :active="request()->routeIs('laptops.index')">
-                        {{ __('Laptops') }}
-                    </x-nav-link>
+                <!-- Dropdown Menu -->
+                <div class="relative inline-block text-left ms-6">
+                    <button id="menu-button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
+                        Opciones
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.292 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
 
-                    <x-nav-link :href="route('desktop-pcs.index')" :active="request()->routeIs('desktop-pcs.index')">
-                        {{ __('Desktop_pcs') }}
-                    </x-nav-link>
+                    <div id="menu-items" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
 
-                    <x-nav-link :href="route('all-in-ones.index')" :active="request()->routeIs('all-in-ones.index')">
-                        {{ __('All in One') }}
-                    </x-nav-link>
+                            <x-nav-link :href="route('laptops.index')" :active="request()->routeIs('laptops.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('Laptops') }}
+                            </x-nav-link>
 
-                    <!-- laptop.index -->
+                            <x-nav-link :href="route('desktop-pcs.index')" :active="request()->routeIs('desktop-pcs.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('Desktop PCs') }}
+                            </x-nav-link>
+
+                            <x-nav-link :href="route('all-in-ones.index')" :active="request()->routeIs('all-in-ones.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('All in One') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -112,3 +126,4 @@
         </div>
     </div>
 </nav>
+@vite(['resources/js/menu.js']),

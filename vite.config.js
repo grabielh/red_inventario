@@ -11,6 +11,8 @@ export default defineConfig({
                 // frond
                 'resources/js/calcular.js',
                 'resources/js/showdate.js',
+                'resources/js/menu.js',
+
 
             ],
             refresh: true,
