@@ -30,6 +30,8 @@
                             <!-- Contenido colapsable -->
                             <div class="mt-2 text-sm">
                                 <p><strong>Dimensiones:</strong> {{ $laptop->dimensions }}</p>
+                                <p><strong>N.Orden:</strong> {{ $laptop->id }}</p>
+
                                 <div id="details-{{ $index }}" class="hidden">
                                     <p><strong>Fuente de Alimentación:</strong> {{ $laptop->power_supply }}</p>
                                     <p><strong>Paquete de Batería:</strong> {{ $laptop->battery_package }}</p>

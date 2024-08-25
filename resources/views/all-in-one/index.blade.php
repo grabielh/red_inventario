@@ -15,8 +15,8 @@
                             <input type="text" name="query" placeholder="Buscar All In Ones por modelo, procesador, etc." class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600" value="{{ request('query') }}">
                             <button type="submit" class="ml-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500">Buscar</button>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('all-in-ones.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir nuevo</a>
-                        </div>
+                                <a type="button" href="{{ route('all-in-ones.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Añadir nuevo</a>
+                            </div>
                         </div>
                     </form>
 
@@ -28,6 +28,7 @@
                                 <h3 class="text-lg font-semibold text-gray-900">{{ $allInOne->model }}</h3>
                             </div>
                             <div class="mt-2 text-sm">
+                                <p><strong>N.Orden:</strong> {{ $allInOne->id }}</p>
                                 <p><strong>RAM:</strong> {{ $allInOne->ram }}</p>
                                 <p><strong>Almacenamiento:</strong> {{ $allInOne->storage }}</p>
                                 <p><strong>Procesador:</strong> {{ $allInOne->processor }}</p>

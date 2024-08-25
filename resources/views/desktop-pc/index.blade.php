@@ -29,6 +29,7 @@
                             </div>
                             <!-- Contenido colapsable -->
                             <div class="mt-2 text-sm">
+                                <p><strong>N.Orden:</strong> {{ $desktopPc->id }}</p>
                                 <p><strong>RAM:</strong> {{ $desktopPc->ram }}</p>
                                 <p><strong>Almacenamiento:</strong> {{ $desktopPc->storage }}</p>
                                 <p><strong>Procesador:</strong> {{ $desktopPc->processor }}</p>

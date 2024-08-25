@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="w-[95%] mx-auto sm:px-6 lg:px-8">
+        <div class="w-[100%] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <!-- Flex container for horizontal layout -->
                 <div class="flex space-x-6 p-6 text-gray-900">
@@ -28,26 +28,26 @@
                                 <div class="mb-4">
                                     <h3 class="text-lg font-semibold text-gray-900">
                                         @if(isset($device->model))
-                                            {{ $device->model }}
+                                        {{ $device->model }}
                                         @else
-                                            {{ __('Dispositivo Desconocido') }}
+                                        {{ __('Dispositivo Desconocido') }}
                                         @endif
                                     </h3>
                                 </div>
                                 <!-- Contenido colapsable -->
                                 <div class="mt-2 text-sm">
                                     @if(isset($device->dimensions))
-                                        <p><strong>Dimensiones:</strong> {{ $device->dimensions }}</p>
+                                    <p><strong>Dimensiones:</strong> {{ $device->dimensions }}</p>
                                     @endif
                                     <div id="details-{{ $index }}" class="hidden">
                                         @if(isset($device->power_supply))
-                                            <p><strong>Fuente de Alimentación:</strong> {{ $device->power_supply }}</p>
+                                        <p><strong>Fuente de Alimentación:</strong> {{ $device->power_supply }}</p>
                                         @endif
                                         @if(isset($device->processor))
-                                            <p><strong>Procesador:</strong> {{ $device->processor }}</p>
+                                        <p><strong>Procesador:</strong> {{ $device->processor }}</p>
                                         @endif
                                         @if(isset($device->memory))
-                                            <p><strong>Memoria:</strong> {{ $device->memory }}</p>
+                                        <p><strong>Memoria:</strong> {{ $device->memory }}</p>
                                         @endif
                                         <!-- Añade más detalles según los campos comunes -->
                                     </div>
@@ -73,7 +73,7 @@
 
                     <!-- New Section -->
                     <div class="flex-1">
-                        <h3 class="text-lg font-semibold text-gray-900">Sección 2</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">Areas Registradas</h3>
                         <!-- Puedes agregar el contenido de la nueva sección aquí -->
                         <!-- Por ejemplo, otro formulario o lista de dispositivos -->
                     </div>

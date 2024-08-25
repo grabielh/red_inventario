@@ -53,16 +53,16 @@
 
                     <div class="menu-items origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
                         <div class="py-1" role="menu" aria-orientation="vertical">
-                            <x-nav-link :href="route('laptops.index')" :active="request()->routeIs('laptops.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                                {{ __('Laptops') }}
+                            <x-nav-link :href="route('responsibles.index')" :active="request()->routeIs('responsibles.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('Responsible') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('desktop-pcs.index')" :active="request()->routeIs('desktop-pcs.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                                {{ __('Desktop PCs') }}
+                            <x-nav-link :href="route('connections.index')" :active="request()->routeIs('connections.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('Escaner') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('all-in-ones.index')" :active="request()->routeIs('all-in-ones.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                                {{ __('All in One') }}
+                            <x-nav-link :href="route('device-types.index')" :active="request()->routeIs('device-types.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                {{ __('Tipos de dispositivos') }}
                             </x-nav-link>
                         </div>
                     </div>

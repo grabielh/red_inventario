@@ -12,6 +12,12 @@ export default defineConfig({
                 'resources/js/calcular.js',
                 'resources/js/showdate.js',
                 'resources/js/menu.js',
+                'resources/js/terminal.js',
+                'resources/js/selector_divice_type.js',
+
+
+                // selector_divice_type
+
 
 
             ],
