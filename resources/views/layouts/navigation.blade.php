@@ -54,11 +54,11 @@
                     <div class="menu-items origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
                         <div class="py-1" role="menu" aria-orientation="vertical">
                             <x-nav-link :href="route('responsibles.index')" :active="request()->routeIs('responsibles.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                                {{ __('Responsible') }}
+                                {{ __('Responsable') }}
                             </x-nav-link>
 
                             <x-nav-link :href="route('connections.index')" :active="request()->routeIs('connections.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                                {{ __('Escaner') }}
+                                {{ __('Conexcion Internet') }}
                             </x-nav-link>
 
                             <x-nav-link :href="route('device-types.index')" :active="request()->routeIs('device-types.index')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">

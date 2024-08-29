@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('user_name');
             $table->string('device_name');
             $table->boolean('monitor');
-            $table->string('monitor_model');
-            $table->string('idconnection');
+            $table->string('monitor_model')->nullable();
             $table->foreign('idconnection')->references('id')->on('connections'); // Assuming a 'connections' table
             $table->timestamps();
         });

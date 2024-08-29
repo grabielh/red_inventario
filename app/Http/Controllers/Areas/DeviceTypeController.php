@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\DeviceTypeRequest;
 use App\Models\AllInOne;
+use App\Models\Connection;
 use App\Models\DesktopPc;
 use App\Models\Laptop;
 use Illuminate\Support\Facades\Redirect;
@@ -33,12 +34,16 @@ class DeviceTypeController extends Controller
     {
         $deviceType = new DeviceType();
         $laptops = Laptop::all();
+        
         $allInOnes = AllInOne::all();
         $desktopPcs = DesktopPc::all();
 
+        $connection = Connection::all();
+
+
         $combined = $laptops->concat($allInOnes)->concat($desktopPcs);
 
-        return view('device-type.create', compact('deviceType','combined'));
+        return view('device-type.create', compact('deviceType','combined','connection'));
     }
 
     /**

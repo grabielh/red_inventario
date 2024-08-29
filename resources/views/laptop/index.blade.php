@@ -73,4 +73,3 @@
     </div>
 </x-app-layout>
 @vite(['resources/js/showdate.js']),
-@vite(['resources/js/calcular.js']),
