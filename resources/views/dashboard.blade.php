@@ -73,10 +73,63 @@
 
                     <!-- New Section -->
                     <div class="flex-1">
-                        <h3 class="text-lg font-semibold text-gray-900">Areas Registradas</h3>
-                        <!-- Puedes agregar el contenido de la nueva sección aquí -->
-                        <!-- Por ejemplo, otro formulario o lista de dispositivos -->
+                        <h3 class="text-lg font-semibold text-gray-900">Áreas Registradas</h3>
+                        <!-- Formulario o lista de dispositivos -->
+                        <div class="w-full">
+                            <div class="sm:flex sm:items-center">
+                                <div class="sm:flex-auto">
+                                    <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Device Types') }}</h1>
+                                    <p class="mt-2 text-sm text-gray-700">A list of all the {{ __('Device Types') }}.</p>
+                                </div>
+                            </div>
+
+                            <div class="flow-root">
+                                <div class="mt-8 overflow-x-auto">
+                                    <div class="inline-block min-w-full py-2 align-middle">
+                                        <table class="w-full divide-y divide-gray-300">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">No</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Device Type</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Use</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">User Name</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Device Name</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Monitor</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Monitor Model</th>
+                                                    <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Idconnection</th>
+                                                    <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-200 bg-white">
+                                                @foreach ($deviceTypes as $deviceType)
+                                                <tr class="even:bg-gray-50">
+                                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ $deviceType->id }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->device_type }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->use }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->user_name }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->device_name }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->monitor }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->monitor_model }}</td>
+                                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->idconnection }}</td>
+                                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
+                                                        <a href="" class="text-blue-600 font-bold hover:text-blue-900">
+                                                            {{ __('Extraer') }}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+
+                                        <div class="mt-4 px-4">
+                                            {!! $deviceTypes->withQueryString()->links() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

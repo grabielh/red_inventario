@@ -7,6 +7,7 @@ use App\Models\Connection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\ConnectionRequest;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -21,7 +22,6 @@ class ConnectionController extends Controller
 
         return view('connection.index', compact('connections'))
             ->with('i', ($request->input('page', 1) - 1) * $connections->perPage());
-
     }
 
     /**
@@ -31,8 +31,7 @@ class ConnectionController extends Controller
     {
         $connection = new Connection();
 
-        return view('connection.create', compact('connection'));    
-
+        return view('connection.create', compact('connection'));
     }
 
     /**
@@ -44,7 +43,6 @@ class ConnectionController extends Controller
 
         return Redirect::route('connections.index')
             ->with('success', 'Connection created successfully.');
-
     }
 
     /**
@@ -78,11 +76,34 @@ class ConnectionController extends Controller
             ->with('success', 'Connection updated successfully');
     }
 
+    // public function destroy($id): RedirectResponse
+    // {
+    //     Connection::find($id)->delete();
+
+    //     return Redirect::route('connections.index')
+    //         ->with('success', 'Connection deleted successfully');
+    // }
+
     public function destroy($id): RedirectResponse
     {
-        Connection::find($id)->delete();
+        try {
+            // Intentar eliminar el registro
+            $connection = Connection::findOrFail($id);
+            $connection->delete();
 
-        return Redirect::route('connections.index')
-            ->with('success', 'Connection deleted successfully');
+            // Redirigir con mensaje de éxito
+            return Redirect::route('connections.index')
+                ->with('success', 'Conexión eliminada exitosamente.');
+        } catch (QueryException $e) {
+            // Verificar el código de error para clave externa
+            if ($e->getCode() == '23000') { // Código de error para restricción de clave externa
+                return Redirect::route('connections.index')
+                    ->with('error', 'No se puede eliminar la conexión porque hay datos asociados.');
+            }
+
+            // Manejar otros tipos de excepciones si es necesario
+            return Redirect::route('connections.index')
+                ->with('error', 'Ocurrió un error inesperado.');
+        }
     }
 }

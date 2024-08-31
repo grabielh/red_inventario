@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\AllInOne;
 use App\Models\DesktopPc;
+use App\Models\DeviceType;
 use App\Models\Laptop;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -16,13 +17,15 @@ class Homecontroller extends Controller
      */
     public function index(Request $request): View
     {
+        $deviceTypes = DeviceType::paginate(10);
+
         $laptops = Laptop::all();
         $allInOnes = AllInOne::all();
         $desktopPcs = DesktopPc::all();
 
         $combined = $laptops->concat($allInOnes)->concat($desktopPcs);
 
-        return view('dashboard', compact('combined'));
+        return view('dashboard', compact('combined', 'deviceTypes'));
     }
 
     public function search(Request $request): View
@@ -59,10 +62,21 @@ class Homecontroller extends Controller
             })
             ->get();
 
-        // Combinar todas las colecciones
-        $combined = $laptops->concat($allInOnes)->concat($desktopPcs);
 
-        return view('dashboard', compact('combined', 'query'));
+        $deviceTypes = DeviceType::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('device_type', 'LIKE', "%{$query}%")
+                    ->orWhere('user_name', 'LIKE', "%{$query}%")
+                    ->orWhere('device_name', 'LIKE', "%{$query}%")
+                    ->orWhere('monitor', 'LIKE', "%{$query}%");
+            })
+            ->paginate(10); // Asegúrate de que esté paginado
+
+
+        // Combinar todas las colecciones
+        $combined = $laptops->concat($allInOnes)->concat($desktopPcs)->concat($deviceTypes);
+
+        return view('dashboard', compact('combined', 'query', 'deviceTypes'));
     }
 
 

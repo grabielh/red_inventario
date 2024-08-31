@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [Homecontroller::class, 'index'])->name('dashboard');
     Route::get('/dashboard/search', [Homecontroller::class, 'search'])->name('dashboard.search');
 
+    
+
 
 
     Route::post('/abrir-terminal', function () {
