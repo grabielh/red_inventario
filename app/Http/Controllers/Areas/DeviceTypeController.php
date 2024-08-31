@@ -73,8 +73,17 @@ class DeviceTypeController extends Controller
     public function edit($id): View
     {
         $deviceType = DeviceType::find($id);
+        $laptops = Laptop::all();
+        
+        $allInOnes = AllInOne::all();
+        $desktopPcs = DesktopPc::all();
 
-        return view('device-type.edit', compact('deviceType'));
+        $connection = Connection::all();
+
+
+        $combined = $laptops->concat($allInOnes)->concat($desktopPcs);
+
+        return view('device-type.edit', compact('deviceType','combined','connection'));
     }
 
     /**

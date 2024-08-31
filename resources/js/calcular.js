@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
         // Obtén el span de conteo de caracteres correspondiente
         const countSpan = document.getElementById(`${input.id}-count`);
 
-        // Actualiza el conteo cuando cambia el valor del input
-        input.addEventListener('input', function () {
-            countSpan.textContent = `${this.value.length} caracteres`;
-        });
+        // Verifica si el span existe
+        if (countSpan) {
+            // Actualiza el conteo cuando cambia el valor del input
+            input.addEventListener('input', function () {
+                countSpan.textContent = `${this.value.length} caracteres`;
+            });
 
-        // Inicializa el conteo al cargar la página
-        countSpan.textContent = `${input.value.length} caracteres`;
+            // Inicializa el conteo al cargar la página
+            countSpan.textContent = `${input.value.length} caracteres`;
+        }
     });
 });

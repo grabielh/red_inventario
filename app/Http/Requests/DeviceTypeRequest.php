@@ -27,7 +27,7 @@ class DeviceTypeRequest extends FormRequest
 			'user_name' => 'required|string',
 			'device_name' => 'required|string',
 			'monitor' => 'required',
-			'monitor_model' => 'required|string',
+			'monitor_model' => 'nullable|string',
 			'idconnection' => 'required|string',
         ];
     }

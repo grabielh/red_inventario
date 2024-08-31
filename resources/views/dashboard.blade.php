@@ -29,6 +29,8 @@
                                     <h3 class="text-lg font-semibold text-gray-900">
                                         @if(isset($device->model))
                                         {{ $device->model }}
+                                        @elseif(isset($device->motherboard_model) && $device instanceof \App\Models\DesktopPc)
+                                        {{ $device->motherboard_model }}
                                         @else
                                         {{ __('Dispositivo Desconocido') }}
                                         @endif
@@ -51,9 +53,6 @@
                                         @endif
                                         <!-- Añade más detalles según los campos comunes -->
                                     </div>
-                                    <!-- <button class="text-indigo-600 font-bold hover:text-indigo-900 mt-2">
-                                        {{ __('Mostrar más') }}
-                                    </button> -->
                                 </div>
                                 <div class="mt-4">
                                     <form action="{{ route('laptops.destroy', $device->id ?? '') }}" method="POST">
@@ -69,6 +68,7 @@
                             <p class="text-center text-gray-500">{{ __('No se encontraron dispositivos.') }}</p>
                             @endforelse
                         </div>
+
                     </div>
 
                     <!-- New Section -->

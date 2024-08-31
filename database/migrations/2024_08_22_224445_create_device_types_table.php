@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('device_name');
             $table->boolean('monitor');
             $table->string('monitor_model')->nullable();
+            $table->unsignedBigInteger('idconnection');
+            
             $table->foreign('idconnection')->references('id')->on('connections'); // Assuming a 'connections' table
             $table->timestamps();
         });

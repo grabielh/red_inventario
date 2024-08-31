@@ -42,11 +42,9 @@ class ConnectionController extends Controller
     {
         Connection::create($request->validated());
 
-        // return Redirect::route('connections.index')
-        //     ->with('success', 'Connection created successfully.');
-
-        return Redirect::route('escaner')
+        return Redirect::route('connections.index')
             ->with('success', 'Connection created successfully.');
+
     }
 
     /**

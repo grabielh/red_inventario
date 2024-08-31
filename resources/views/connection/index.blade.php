@@ -24,26 +24,26 @@
                             <div class="inline-block min-w-full py-2 align-middle">
                                 <table class="w-full divide-y divide-gray-300">
                                     <thead>
-                                    <tr>
-                                        <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">No</th>
-                                        
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Connection Type</th>
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Mac Address</th>
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Dhcp</th>
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Ip Connection</th>
+                                        <tr>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">No</th>
 
-                                        <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
-                                    </tr>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Connection Type</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Mac Address</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Dhcp</th>
+                                            <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Ip Connection</th>
+
+                                            <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
+                                        </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                    @foreach ($connections as $connection)
+                                        @foreach ($connections as $connection)
                                         <tr class="even:bg-gray-50">
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ ++$i }}</td>
-                                            
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->connection_type }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->mac_address }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->DHCP }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->ip_connection }}</td>
+                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ $connection->id }}</td>
+
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->connection_type }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->mac_address }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->DHCP }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $connection->ip_connection }}</td>
 
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
                                                 <form action="{{ route('connections.destroy', $connection->id) }}" method="POST">
@@ -55,7 +55,7 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
 
