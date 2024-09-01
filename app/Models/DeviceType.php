@@ -31,7 +31,7 @@ class DeviceType extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['device_type', 'use', 'user_name', 'device_name', 'monitor', 'monitor_model', 'idconnection'];
+    protected $fillable = ['name', 'device_type', 'use', 'user_name', 'device_name', 'monitor', 'monitor_model', 'idconnection'];
 
 
 }

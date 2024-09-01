@@ -37,7 +37,7 @@ class Laptop extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['model', 'dimensions', 'power_supply', 'battery_package', 'processor', 'memory', 'storage', 'monitor', 'keyboard', 'connectors_slots', 'security_features', 'wireless_features', 'img'];
+    protected $fillable = ['name', 'model', 'dimensions', 'power_supply', 'battery_package', 'processor', 'memory', 'storage', 'monitor', 'keyboard', 'connectors_slots', 'security_features', 'wireless_features', 'img'];
 
 
 }

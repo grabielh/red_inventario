@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('laptops', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->default('Laptop')->nullable();
             $table->string('model');
             $table->string('dimensions');
             $table->string('power_supply');

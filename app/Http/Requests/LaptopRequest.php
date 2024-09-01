@@ -22,6 +22,7 @@ class LaptopRequest extends FormRequest
     public function rules(): array
     {
         return [
+			'name' => 'nullable|string',
 			'model' => 'required|string',
 			'dimensions' => 'required|string',
 			'power_supply' => 'required|string',
@@ -34,7 +35,7 @@ class LaptopRequest extends FormRequest
 			'connectors_slots' => 'required|string',
 			'security_features' => 'required|string',
 			'wireless_features' => 'required|string',
-			'img' => 'string',
+			'img' => 'nullable|string',
         ];
     }
 }

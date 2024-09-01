@@ -1,9 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dispositivos') }}
-        </h2>
-    </x-slot>
+
 
     <div class="py-12">
         <div class="w-[100%] mx-auto sm:px-6 lg:px-8">
@@ -28,8 +24,10 @@
                                 <div class="mb-4">
                                     <h3 class="text-lg font-semibold text-gray-900">
                                         @if(isset($device->model))
+                                        {{ $device->name }}
                                         {{ $device->model }}
                                         @elseif(isset($device->motherboard_model) && $device instanceof \App\Models\DesktopPc)
+                                        {{ $device->name }}
                                         {{ $device->motherboard_model }}
                                         @else
                                         {{ __('Dispositivo Desconocido') }}
@@ -111,11 +109,7 @@
                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->monitor }}</td>
                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->monitor_model }}</td>
                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $deviceType->idconnection }}</td>
-                                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                        <a href="" class="text-blue-600 font-bold hover:text-blue-900">
-                                                            {{ __('Extraer') }}
-                                                        </a>
-                                                    </td>
+
                                                 </tr>
                                                 @endforeach
                                             </tbody>

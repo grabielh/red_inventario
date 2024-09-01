@@ -29,7 +29,7 @@ class AllInOne extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['model', 'ram', 'storage', 'processor', 'img'];
+    protected $fillable = ['name', 'model', 'ram', 'storage', 'processor', 'img'];
 
 
 }

@@ -1,6 +1,13 @@
 <div class="space-y-6">
 
     <div>
+        <x-input-label for="name" :value="__('Name')" />
+        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full data-input" value="Laptop" autocomplete="name" placeholder="Name" readonly />
+        <span id="name-count" class="text-sm text-gray-500">0 caracteres</span>
+        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+    </div>
+
+    <div>
         <x-input-label for="model" :value="__('Model')" />
         <x-text-input id="model" name="model" type="text" class="mt-1 block w-full data-input" :value="old('model', $laptop?->model)" autocomplete="model" placeholder="Model" />
         <span id="model-count" class="text-sm text-gray-500">0 caracteres</span>

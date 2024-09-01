@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('desktop_pcs', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->default('PC')->nullable();
             $table->string('motherboard_model');
             $table->string('ram');
             $table->string('storage');

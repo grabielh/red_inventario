@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('all_in_ones', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->default('All in One')->nullable();
             $table->string('model');
             $table->string('ram');
             $table->string('storage');

@@ -22,11 +22,12 @@ class DesktopPcRequest extends FormRequest
     public function rules(): array
     {
         return [
+			'name' => 'nullable|string',
 			'motherboard_model' => 'required|string',
 			'ram' => 'required|string',
 			'storage' => 'required|string',
 			'processor' => 'required|string',
-			'img' => 'string',
+			'img' => 'nullable|string',
         ];
     }
 }

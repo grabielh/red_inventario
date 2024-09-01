@@ -5,7 +5,7 @@
         <select id="device_selector" class="mt-1 block w-full rounded-lg border-gray-300">
             <option value="">Selecciona un dispositivo...</option>
             @foreach ($combined as $device)
-            <option value="{{ $device->model_name }}">{{ $device->model_name}}</option>
+            <option value="{{ $device->model }}">{{ $device->model}}</option>
             @endforeach
         </select>
     </div>
@@ -16,13 +16,6 @@
         <span id="device_type-count" class="text-sm text-gray-500">0 caracteres</span>
         <x-input-error class="mt-2" :messages="$errors->get('device_type')" />
     </div>
-
-    <!-- <div>
-        <x-input-label for="device_type" :value="__('Device Type')" />
-        <x-text-input id="device_type" name="device_type" type="text" class="mt-1 block w-full data-input" :value="old('device_type', $deviceType?->device_type)" autocomplete="device_type" placeholder="Device Type" />
-        <span id="device_type-count" class="text-sm text-gray-500">0 caracteres</span>
-        <x-input-error class="mt-2" :messages="$errors->get('device_type')" />
-    </div> -->
 
     <div>
         <x-input-label for="use_selector" :value="__('Select Use')" />
@@ -39,12 +32,6 @@
         <span id="use-text-count" class="text-sm text-gray-500">0 caracteres</span>
         <x-input-error class="mt-2" :messages="$errors->get('use')" />
     </div>
-    <!-- <div>
-        <x-input-label for="use" :value="__('Use')" />
-        <x-text-input id="use" name="use" type="text" class="mt-1 block w-full data-input" :value="old('use', $deviceType?->use)" autocomplete="use" placeholder="Use" />
-        <span id="use-text-count" class="text-sm text-gray-500">0 caracteres</span>
-        <x-input-error class="mt-2" :messages="$errors->get('use')" />
-    </div> -->
 
     <div>
         <x-input-label for="user_name" :value="__('User Name')" />
@@ -102,14 +89,6 @@
         <span id="idconnection-count" class="text-sm text-gray-500">0 caracteres</span>
         <x-input-error class="mt-2" :messages="$errors->get('idconnection')" />
     </div>
-
-
-    <!-- <div>
-        <x-input-label for="idconnection" :value="__('Idconnection')" />
-        <x-text-input id="idconnection" name="idconnection" type="text" class="mt-1 block w-full data-input" :value="old('idconnection', $deviceType?->idconnection)" autocomplete="idconnection" placeholder="Idconnection" />
-        <span id="idconnection-count" class="text-sm text-gray-500">0 caracteres</span>
-        <x-input-error class="mt-2" :messages="$errors->get('idconnection')" />
-    </div> -->
 
     <div class="flex items-center gap-4">
         <x-primary-button>Submit</x-primary-button>

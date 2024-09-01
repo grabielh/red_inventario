@@ -28,7 +28,8 @@ class AllInOneController extends Controller
         $query = $request->input('query');
         $allInOnes = AllInOne::query()
             ->when($query, function ($queryBuilder) use ($query) {
-                $queryBuilder->where('model', 'LIKE', "%{$query}%")
+                $queryBuilder->where('name', 'LIKE', "%{$query}%")
+                    ->orWhere('model', 'LIKE', "%{$query}%")
                     ->orWhere('ram', 'LIKE', "%{$query}%")
                     ->orWhere('storage', 'LIKE', "%{$query}%")
                     ->orWhere('processor', 'LIKE', "%{$query}%");

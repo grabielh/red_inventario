@@ -28,7 +28,8 @@ class DesktopPcController extends Controller
         $query = $request->input('query');
         $desktopPcs = DesktopPc::query()
             ->when($query, function ($queryBuilder) use ($query) {
-                $queryBuilder->where('motherboard_model', 'LIKE', "%{$query}%")
+                $queryBuilder->where('name', 'LIKE', "%{$query}%")
+                    ->orWhere('motherboard_model', 'LIKE', "%{$query}%")
                     ->orWhere('ram', 'LIKE', "%{$query}%")
                     ->orWhere('storage', 'LIKE', "%{$query}%")
                     ->orWhere('processor', 'LIKE', "%{$query}%");

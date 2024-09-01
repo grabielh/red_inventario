@@ -29,7 +29,7 @@ class DesktopPc extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['motherboard_model', 'ram', 'storage', 'processor', 'img'];
+    protected $fillable = ['name', 'motherboard_model', 'ram', 'storage', 'processor', 'img'];
 
 
 }

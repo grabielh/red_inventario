@@ -50,7 +50,7 @@ class Homecontroller extends Controller
                     ->orWhere('ram', 'LIKE', "%{$query}%")
                     ->orWhere('storage', 'LIKE', "%{$query}%")
                     ->orWhere('processor', 'LIKE', "%{$query}%");
-            })
+            })  
             ->get();
 
         $desktopPcs = DesktopPc::query()

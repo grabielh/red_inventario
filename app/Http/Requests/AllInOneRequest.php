@@ -22,11 +22,12 @@ class AllInOneRequest extends FormRequest
     public function rules(): array
     {
         return [
+			'name' => 'nullable|string',
 			'model' => 'required|string',
 			'ram' => 'required|string',
 			'storage' => 'required|string',
 			'processor' => 'required|string',
-			'img' => 'required|string',
+			'img' => 'nullable|string',
         ];
     }
 }

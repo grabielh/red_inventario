@@ -29,6 +29,7 @@
                             </div>
                             <div class="mt-2 text-sm">
                                 <p><strong>N.Orden:</strong> {{ $allInOne->id }}</p>
+                                <p><strong>Name:</strong> {{ $allInOne->name }}</p>
                                 <p><strong>RAM:</strong> {{ $allInOne->ram }}</p>
                                 <p><strong>Almacenamiento:</strong> {{ $allInOne->storage }}</p>
                                 <p><strong>Procesador:</strong> {{ $allInOne->processor }}</p>

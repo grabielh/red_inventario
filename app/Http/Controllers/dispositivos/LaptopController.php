@@ -26,7 +26,8 @@ class LaptopController extends Controller
     public function search(Request $request): View
     {
         $query = $request->input('query');
-        $laptops = Laptop::where('model', 'LIKE', "%{$query}%")
+        $laptops = Laptop::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('model', 'LIKE', "%{$query}%")
             ->orWhere('dimensions', 'LIKE', "%{$query}%")
             ->orWhere('processor', 'LIKE', "%{$query}%")
             ->orWhere('memory', 'LIKE', "%{$query}%")

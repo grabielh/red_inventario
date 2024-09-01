@@ -29,6 +29,7 @@
                             </div>
                             <!-- Contenido colapsable -->
                             <div class="mt-2 text-sm">
+                                <p><strong>Name:</strong> {{ $laptop->name }}</p>
                                 <p><strong>Dimensiones:</strong> {{ $laptop->dimensions }}</p>
                                 <p><strong>N.Orden:</strong> {{ $laptop->id }}</p>
 
